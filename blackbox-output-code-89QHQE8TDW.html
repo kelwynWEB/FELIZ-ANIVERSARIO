@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Evilla!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #d63384;
+        }
+        .cake {
+            width: 300px;
+            height: 200px;
+            background: #f4a261;
+            border-radius: 50% 50% 0 0;
+            margin: 20px auto;
+            position: relative;
+            border: 5px solid #e76f51;
+        }
+        .cake::before {
+            content: "Evilla";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: white;
+            font-weight: bold;
+        }
+        .candle {
+            width: 10px;
+            height: 50px;
+            background: #fff;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        .flame {
+            width: 10px;
+            height: 20px;
+            background: #ff4500;
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 1s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .blown {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feliz Aniversário, Evilla!</h1>
+    <p>Desejando um dia incrível em 16 de fevereiro de 2026!</p>
+    <div class="cake">
+        <div class="candle">
+            <div class="flame" id="flame"></div>
+        </div>
+    </div>
+    <button onclick="blowCandle()">Assoprar a Vela</button>
+    <div class="message" id="message"></div>
+
+    <script>
+        function blowCandle() {
+            const flame = document.getElementById('flame');
+            const message = document.getElementById('message');
+            flame.classList.add('blown');
+            message.innerHTML = "🎉 Parabéns, Evilla! Que seu ano seja cheio de alegria! 🎂";
+        }
+    </script>
+</body>
+</html>
